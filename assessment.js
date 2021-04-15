@@ -15,12 +15,6 @@ function removeAllChildren(element) {
     }
 }
 
-userNameInput.onkeydown = event => {
-    if (event.key === 'Enter'){
-        // todo ボタンのonclock()処理を呼び出す
-        assessmentButton.onclick();
-    }
-};
 assessmentButton.onclick = () => {
     const userName = userNameInput.value;
     if (userName.length === 0) {
