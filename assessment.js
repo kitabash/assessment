@@ -22,7 +22,6 @@ assessmentButton.onclick = () => {
         return;
     }
 
-
     // 診断結果表示エリアの作成
     removeAllChildren(resultDivided)    // result-areaにh3タグで”診断結果”という文字を表示
     const header = document.createElement('h3');　//h3タグを作る
