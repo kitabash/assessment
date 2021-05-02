@@ -22,16 +22,21 @@ assessmentButton.onclick = () => {
         // 名前が空の時は処理を終了する
         return;
     }
-    // 診断結果表示エリアの作成
-    removeAllChildren(resultDivided)    // result-areaにh3タグで”診断結果”という文字を表示
-    const header = document.createElement('h3');　//h3タグを作る
-    header.innerText = '測定結果';　//h3タグに"診断結果"の文字列を設定
-    resultDivided.appendChild(header);　//result-areaにh3変数を設定(html側に)
 
-    const paragraph = document.createElement('p'); // result-areaにpタグで診断結果を表示
-    const result = assessment(bodyHeight); // 診断結果を実行
-    paragraph.innerText = result;
-    resultDivided.appendChild(paragraph);
+    // 診断結果表示エリアの作成
+
+    if (bodyHeight > 250) { alert('いやいや、そんなでかくないでしょ。'); }
+    else if (bodyHeight < 50) { alert('それはさすがに小っちゃすぎだわ。'); }
+    else {
+        removeAllChildren(resultDivided)    // result-areaにh3タグで”診断結果”という文字を表示
+        const header = document.createElement('h3');　//h3タグを作る
+        header.innerText = '測定結果';　//h3タグに"診断結果"の文字列を設定
+        resultDivided.appendChild(header);　//result-areaにh3変数を設定(html側に)
+        const paragraph = document.createElement('p'); // result-areaにpタグで診断結果を表示
+        const result = assessment(bodyHeight); // 診断結果を実行
+        paragraph.innerText = result;
+        resultDivided.appendChild(paragraph);
+    }
 }
 function assessment(bodyHeight) {
     // 身長を10倍して四捨五入
@@ -48,7 +53,7 @@ function assessment(bodyHeight) {
 const answers = [
     'あなたの身長は、だいたい富士山の{times}倍です。ずいぶんとちっぽけですね。',
     'あなたの身長は、だいたいシンゴジラの{times}倍です。ちょっと闘えないですねぇ。',
-    'あなたの身長は、だいたいシロナガスクジラの{times}倍です。背伸びしても...届かないですね。',
+    'あなたの身長は、だいたいシロナガスクジラの{times}倍です。もうちょいですね。',
     'あなたの身長は、だいたい八村塁選手の{times}倍です。もっと大きくなりましょう。',
     'あなたの身長は、だいたいイエヒメアリの{times}倍です。進撃並みの巨人ですね。',
     'あなたの身長は、だいたいスギ花粉の{times}倍です。けっこう大きいじゃないですか。',
